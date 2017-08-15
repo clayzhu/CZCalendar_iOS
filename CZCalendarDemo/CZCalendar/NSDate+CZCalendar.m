@@ -52,4 +52,35 @@
     return dateComponent.second;
 }
 
+- (NSUInteger)weekday {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponent = [calendar components:NSCalendarUnitWeekday fromDate:self];
+    return dateComponent.weekday;
+}
+
+- (NSUInteger)numberOfDaysInMonth {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self];
+    return range.length;
+}
+
+- (NSDate *)firstDayOfMonth {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponent = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    dateComponent.day = 1;
+    NSDate *firstDayOfMonth = [calendar dateFromComponents:dateComponent];
+    return firstDayOfMonth;
+}
+
+- (NSInteger)firstWeekdayOfMonth {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    // 设置每周的第一天从周几开始，默认为1，从周日开始
+    calendar.firstWeekday = 1;  // 1.Sun. 2.Mon. 3.Thes. 4.Wed. 5.Thur. 6.Fri. 7.Sat.
+    NSDateComponents *dateComponent = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    dateComponent.day = 1;
+    NSDate *firstDayOfMonth = [calendar dateFromComponents:dateComponent];
+    NSUInteger firstWeekdayOfMonth = [calendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayOfMonth];
+    return firstWeekdayOfMonth;
+}
+
 @end
