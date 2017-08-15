@@ -13,6 +13,7 @@
 		6F3C9B5D1F435A79009E9D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F3C9B5B1F435A79009E9D44 /* Main.storyboard */; };
 		6F3C9B5F1F435A79009E9D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F3C9B5E1F435A79009E9D44 /* Assets.xcassets */; };
 		6F3C9B621F435A79009E9D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F3C9B601F435A79009E9D44 /* LaunchScreen.storyboard */; };
+		6F3C9B6C1F435BCF009E9D44 /* NSDate+CZCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C9B6B1F435BCF009E9D44 /* NSDate+CZCalendar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		6F3C9B5E1F435A79009E9D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F3C9B611F435A79009E9D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F3C9B631F435A79009E9D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F3C9B6A1F435BCF009E9D44 /* NSDate+CZCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CZCalendar.h"; sourceTree = "<group>"; };
+		6F3C9B6B1F435BCF009E9D44 /* NSDate+CZCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CZCalendar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				6F3C9B511F435A79009E9D44 /* CZCalendarDemo */,
+				6F3C9B691F435AD5009E9D44 /* CZCalendar */,
 				6F3C9B501F435A79009E9D44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +81,15 @@
 				6F3C9B531F435A79009E9D44 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F3C9B691F435AD5009E9D44 /* CZCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				6F3C9B6A1F435BCF009E9D44 /* NSDate+CZCalendar.h */,
+				6F3C9B6B1F435BCF009E9D44 /* NSDate+CZCalendar.m */,
+			);
+			path = CZCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +166,7 @@
 				6F3C9B5A1F435A79009E9D44 /* ViewController.m in Sources */,
 				6F3C9B571F435A79009E9D44 /* AppDelegate.m in Sources */,
 				6F3C9B541F435A79009E9D44 /* main.m in Sources */,
+				6F3C9B6C1F435BCF009E9D44 /* NSDate+CZCalendar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
