@@ -29,7 +29,7 @@
 - (NSUInteger)numberOfDaysInMonth;
 /** 获取 NSDate 对应月份的第一天 */
 - (NSDate *)firstDayOfMonth;
-/** 获取 NSDate 对应月份的第一天是周几 */
+/** 获取 NSDate 对应月份的第一天是周几，从1-周日开始 */
 - (NSInteger)firstWeekdayOfMonth;
 
 @end
