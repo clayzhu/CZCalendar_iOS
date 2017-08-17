@@ -23,10 +23,10 @@
 /** 秒 */
 - (NSInteger)second;
 /** 周几，从1-周日开始 */
-- (NSUInteger)weekday;
+- (NSInteger)weekday;
 
 /** 获取 NSDate 对应月份的天数 */
-- (NSUInteger)numberOfDaysInMonth;
+- (NSInteger)numberOfDaysInMonth;
 /** 获取 NSDate 对应月份的第一天 */
 - (NSDate *)firstDayOfMonth;
 /** 获取 NSDate 对应月份的第一天是周几，从1-周日开始 */

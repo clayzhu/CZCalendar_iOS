@@ -52,13 +52,13 @@
     return dateComponent.second;
 }
 
-- (NSUInteger)weekday {
+- (NSInteger)weekday {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponent = [calendar components:NSCalendarUnitWeekday fromDate:self];
     return dateComponent.weekday;
 }
 
-- (NSUInteger)numberOfDaysInMonth {
+- (NSInteger)numberOfDaysInMonth {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self];
     return range.length;
@@ -79,7 +79,7 @@
     NSDateComponents *dateComponent = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     dateComponent.day = 1;
     NSDate *firstDayOfMonth = [calendar dateFromComponents:dateComponent];
-    NSUInteger firstWeekdayOfMonth = [calendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayOfMonth];
+    NSInteger firstWeekdayOfMonth = [calendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayOfMonth];
     return firstWeekdayOfMonth;
 }
 
