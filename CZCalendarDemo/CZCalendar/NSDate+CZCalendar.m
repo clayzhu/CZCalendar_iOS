@@ -117,13 +117,19 @@
     } else {
         numberOfDaysToShow = 35;
     }
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     // 补全1号前的日子（上个月的最后几天）
     NSDate *lastMonthDate = [self adjacentMonthWithOffsetNumber:-1];
+    NSDateComponents *lastMonthDateComponents = [lastMonthDate dateComponents];
     NSInteger numberOfDaysInLastMonth = [lastMonthDate numberOfDaysInMonth]; // 上个月的天数
     for (NSInteger i = numberOfDaysInLastMonth - (firstWeekdayOfMonth - 1); i < numberOfDaysInLastMonth; i ++) {
         DayToShowModel *model = [[DayToShowModel alloc] init];
         model.dayToShowPeriod = DayToShowPeriodLastMonth;
-        model.day = i + 1;
+        lastMonthDateComponents.day = i + 1;
+        NSDate *date = [calendar dateFromComponents:lastMonthDateComponents];
+        model.date = date;
+        model.dateComponents = [date dateComponents];
         [daysToShowMA addObject:model];
     }
     // 该月的日子
@@ -132,18 +138,26 @@
     for (NSInteger j = 0; j < numberOfDaysInMonth; j ++) {
         DayToShowModel *model = [[DayToShowModel alloc] init];
         model.dayToShowPeriod = DayToShowPeriodThisMonth;
-        model.day = j + 1;
         if (thisDateComponents.year == nowDateComponents.year && thisDateComponents.month == nowDateComponents.month && nowDateComponents.day == j + 1) {   // self 对应的月份正好是当月，则寻找到今天的日子
             model.today = YES;
         }
+        thisDateComponents.day = j + 1;
+        NSDate *date = [calendar dateFromComponents:thisDateComponents];
+        model.date = date;
+        model.dateComponents = [date dateComponents];
         [daysToShowMA addObject:model];
     }
     // 提前补充下个月的开始几天
+    NSDate *nextMonthDate = [self adjacentMonthWithOffsetNumber:1];
+    NSDateComponents *nextMonthDateComponents = [nextMonthDate dateComponents];
     NSInteger numberOfDaysInNextMonthBeginning = numberOfDaysToShow - numberOfDaysInMonth - (firstWeekdayOfMonth - 1);
     for (NSInteger k = 0; k < numberOfDaysInNextMonthBeginning; k ++) {
         DayToShowModel *model = [[DayToShowModel alloc] init];
         model.dayToShowPeriod = DayToShowPeriodNextMonth;
-        model.day = k + 1;
+        nextMonthDateComponents.day = k + 1;
+        NSDate *date = [calendar dateFromComponents:nextMonthDateComponents];
+        model.date = date;
+        model.dateComponents = [date dateComponents];
         [daysToShowMA addObject:model];
     }
     return daysToShowMA;

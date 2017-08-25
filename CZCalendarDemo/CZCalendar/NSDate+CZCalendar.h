@@ -65,7 +65,8 @@ typedef NS_ENUM(NSUInteger, DayToShowPeriod) {
 @interface DayToShowModel : NSObject
 
 @property (assign, nonatomic) DayToShowPeriod dayToShowPeriod;
-@property (assign, nonatomic) NSInteger day;
 @property (assign, nonatomic, getter=isToday) BOOL today;
+@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSDateComponents *dateComponents;
 
 @end
